@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:funhub/view/home/main_screen.dart';
 import 'package:funhub/view/nav/nav_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -41,11 +42,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       _pageController.nextPage(
           duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
     } else {
+      _completeOnBoarding();
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const MainNavigationScreen()),
       );
     }
+  }
+
+  Future<bool> _completeOnBoarding() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.setBool('onboarding_completed', true);
   }
 
   @override

@@ -28,6 +28,9 @@ class CustomBottomNavBar extends StatelessWidget {
           unselectedItemColor: Colors.white.withOpacity(0.6),
           currentIndex: selectedIndex,
           onTap: onItemSelected,
+          type: BottomNavigationBarType.fixed,
+          showSelectedLabels: true,
+          showUnselectedLabels: true,
           items: const [
             BottomNavigationBarItem(
               icon: Icon(CupertinoIcons.game_controller),
