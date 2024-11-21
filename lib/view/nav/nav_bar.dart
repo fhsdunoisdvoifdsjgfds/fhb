@@ -18,19 +18,12 @@ class CustomBottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        color: const Color(0xFF6A3EA1),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 10,
-            offset: const Offset(0, -5),
-          ),
-        ],
+      decoration: const BoxDecoration(
+        color: Color(0xFF6524BA),
       ),
       child: ClipRRect(
         child: BottomNavigationBar(
-          backgroundColor: Colors.transparent,
+          backgroundColor: const Color.fromARGB(255, 88, 25, 171),
           selectedItemColor: Colors.white,
           unselectedItemColor: Colors.white.withOpacity(0.6),
           currentIndex: selectedIndex,

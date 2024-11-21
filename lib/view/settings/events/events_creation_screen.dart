@@ -90,21 +90,52 @@ class _EventsScreenState extends State<EventsScreen> {
   }
 
   Widget _buildEventCard(Event event) {
-    return Card(
-      color: const Color(0xFF30015D),
-      margin: const EdgeInsets.only(bottom: 16),
-      child: ListTile(
-        title: Text(
-          event.name,
-          style: GoogleFonts.dmSans(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
+    return Dismissible(
+      key: Key(event.name + event.date), // Уникальный ключ для каждого ивента
+      direction: DismissDirection.endToStart,
+      background: Container(
+        alignment: Alignment.centerRight,
+        padding: const EdgeInsets.only(right: 20),
+        decoration: BoxDecoration(
+          color: Colors.red,
+          borderRadius: BorderRadius.circular(12),
         ),
-        subtitle: Text(
-          '${event.date} at ${event.time}\nBudget: \$${event.budget}',
-          style: GoogleFonts.dmSans(
-            color: Colors.white.withOpacity(0.7),
+        child: const Icon(
+          Icons.delete,
+          color: Colors.white,
+          size: 30,
+        ),
+      ),
+      onDismissed: (direction) {
+        setState(() {
+          events.remove(event);
+        });
+        _saveEvents();
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Event ${event.name} deleted'),
+            behavior: SnackBarBehavior.floating,
+            backgroundColor: Colors.red,
+          ),
+        );
+      },
+      child: Card(
+        color: const Color(0xFF30015D),
+        margin: const EdgeInsets.only(bottom: 16),
+        child: ListTile(
+          title: Text(
+            event.name,
+            style: GoogleFonts.dmSans(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          subtitle: Text(
+            '${event.date} at ${event.time}\nBudget: \$${event.budget}',
+            style: GoogleFonts.dmSans(
+              color: Colors.white.withOpacity(0.7),
+            ),
           ),
         ),
       ),
@@ -250,6 +281,7 @@ class _AddEventDialogState extends State<AddEventDialog> {
                     'Create',
                     style: GoogleFonts.dmSans(
                       fontSize: 16,
+                      color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

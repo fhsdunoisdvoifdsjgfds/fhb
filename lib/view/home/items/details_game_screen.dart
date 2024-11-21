@@ -120,7 +120,7 @@ class GameDetailsScreen extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
-                          color: Color(0xFF30015D).withOpacity(0.9),
+                          color: const Color(0xFF30015D).withOpacity(0.9),
                           borderRadius: BorderRadius.circular(16),
                           boxShadow: [
                             BoxShadow(
@@ -213,9 +213,9 @@ class GameDetailsScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        child: Column(
+                        child: const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
+                          children: [
                             Text(
                               'Tips',
                               style: TextStyle(

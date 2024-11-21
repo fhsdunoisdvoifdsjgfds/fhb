@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:funhub/view/settings/check/check_list_data.dart';
 import 'package:funhub/view/settings/contact_form/contact_support_screen.dart';
 import 'package:funhub/view/settings/events/events_creation_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -52,7 +53,14 @@ class SettingsScreen extends StatelessWidget {
                     _buildTile(
                       icon: Icons.checklist,
                       title: 'Checklist',
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ChecklistScreen(),
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),
