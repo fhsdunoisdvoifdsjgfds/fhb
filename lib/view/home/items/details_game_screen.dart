@@ -15,18 +15,14 @@ class GameDetailsScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          // Background image
           Image.asset(
             'assets/images/details_background.png',
             fit: BoxFit.cover,
             width: double.infinity,
             height: double.infinity,
           ),
-
-          // Content
           CustomScrollView(
             slivers: [
-              // App Bar
               SliverAppBar(
                 backgroundColor: const Color(0xFF30015D),
                 expandedHeight: 20.0,
@@ -50,15 +46,12 @@ class GameDetailsScreen extends StatelessWidget {
                   onPressed: () => Navigator.pop(context),
                 ),
               ),
-
-              // Content
               SliverToBoxAdapter(
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Game details card
                       Stack(
                         children: [
                           Container(
@@ -121,11 +114,9 @@ class GameDetailsScreen extends StatelessWidget {
                           )
                         ],
                       ),
-
                       const SizedBox(
                         height: 20,
                       ),
-
                       Container(
                         padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
@@ -208,7 +199,6 @@ class GameDetailsScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-
                       const SizedBox(height: 20),
                       Container(
                         padding: const EdgeInsets.all(16),

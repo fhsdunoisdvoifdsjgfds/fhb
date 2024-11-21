@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:funhub/view/drinks/drinks_main.dart';
 import 'package:funhub/view/home/main_screen.dart';
+import 'package:funhub/view/settings/settings_screen.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   final int selectedIndex;
@@ -67,7 +68,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   final List<Widget> _screens = [
     const MainScreen(),
     const DrinksMain(),
-    MainScreen(),
+    const SettingsScreen(),
   ];
 
   void _onItemTapped(int index) {

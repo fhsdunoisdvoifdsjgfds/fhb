@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:funhub/view/home/items/data/data.dart';
+import 'package:funhub/view/drinks/custom_widget_drink.dart';
+
+import 'data/data.dart';
 
 class DrinksMain extends StatelessWidget {
   const DrinksMain({Key? key}) : super(key: key);
@@ -46,23 +48,23 @@ class DrinksMain extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              // Padding(
-              //   padding: const EdgeInsets.symmetric(horizontal: 16),
-              //   child: ListView.builder(
-              //     physics: const NeverScrollableScrollPhysics(),
-              //     shrinkWrap: true,
-              //     itemCount: games.length,
-              //     itemBuilder: (context, index) {
-              //       return Padding(
-              //         padding: const EdgeInsets.only(bottom: 16),
-              //         child: CustomListItem(
-              //           index: index,
-              //         ),
-              //       );
-              //     },
-              //   ),
-              // ),
-              // const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: drinks.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.only(bottom: 16),
+                      child: CustomDrinkCardx(
+                        index: index,
+                      ),
+                    );
+                  },
+                ),
+              ),
+              const SizedBox(height: 20),
             ],
           ),
         ),
