@@ -1,4 +1,4 @@
-package com.example.funhub
+package com.funhabi
 
 import io.flutter.embedding.android.FlutterActivity
 
