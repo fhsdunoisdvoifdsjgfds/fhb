@@ -97,12 +97,14 @@ class SettingsScreen extends StatelessWidget {
                     _buildTile(
                       icon: Icons.description,
                       title: 'Terms and Conditions',
-                      onTap: () => _launchURL(''),
+                      onTap: () =>
+                          _launchURL('https://sneakerwin.online/vibehub-terms'),
                     ),
                     _buildTile(
                       icon: Icons.privacy_tip,
                       title: 'Privacy Policy',
-                      onTap: () => _launchURL(''),
+                      onTap: () => _launchURL(
+                          'https://sneakerwin.online/vibehub-policy'),
                     ),
                   ],
                 ),
