@@ -148,18 +148,18 @@ class CustomListItem extends StatelessWidget {
                     color: Colors.white,
                   ),
                   const SizedBox(
-                    width: 10,
+                    width: 0,
                   ),
                   Text(
                     games[index].time,
                     style: GoogleFonts.dmSans(
                       color: Colors.white,
-                      fontSize: 16,
+                      fontSize: 12,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   const SizedBox(
-                    width: 30,
+                    width: 10,
                   ),
                   InkWell(
                     onTap: () {
@@ -186,7 +186,7 @@ class CustomListItem extends StatelessWidget {
                           'Read',
                           style: GoogleFonts.dmSans(
                             color: Colors.white,
-                            fontSize: 16,
+                            fontSize: 12,
                             fontWeight: FontWeight.bold,
                           ),
                         ),

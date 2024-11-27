@@ -126,7 +126,7 @@ class CustomDrinkCardx extends StatelessWidget {
                       'Read',
                       style: GoogleFonts.dmSans(
                         color: Colors.white,
-                        fontSize: 14,
+                        fontSize: 12,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
