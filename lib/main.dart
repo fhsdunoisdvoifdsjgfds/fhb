@@ -11,6 +11,7 @@ import 'package:funhub/view/nav/nav_bar.dart';
 import 'package:funhub/view/settings/events/event.dart';
 import 'package:funhub/view/splash/splash_screen.dart';
 import 'package:http/http.dart' as http;
+import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'view/onboard/onboarding_screen.dart';
 import 'view/settings/fb.dart';
@@ -46,6 +47,8 @@ class DeepLink {
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  OneSignal.initialize("54c63e47-6dad-403b-959c-433f5f90a2b5");
+  OneSignal.Notifications.requestPermission(true);
   runApp(const MyApp());
 }
 
