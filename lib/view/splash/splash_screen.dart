@@ -1,3 +1,4 @@
+import 'package:app_tracking_transparency/app_tracking_transparency.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -14,6 +15,7 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   void initState() {
     super.initState();
+    aps();
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 900),
@@ -22,6 +24,17 @@ class _SplashScreenState extends State<SplashScreen>
     _animation = IntTween(begin: 0, end: 3).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
     );
+  }
+
+  Future<void> aps() async {
+    final TrackingStatus status =
+        await AppTrackingTransparency.trackingAuthorizationStatus;
+    if (status == TrackingStatus.notDetermined) {
+      await AppTrackingTransparency.requestTrackingAuthorization();
+    } else if (status == TrackingStatus.denied ||
+        status == TrackingStatus.restricted) {
+      await AppTrackingTransparency.requestTrackingAuthorization();
+    }
   }
 
   @override

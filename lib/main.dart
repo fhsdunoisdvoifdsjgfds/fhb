@@ -47,6 +47,7 @@ class DeepLink {
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await AppTrackingTransparency.requestTrackingAuthorization();
   OneSignal.initialize("54c63e47-6dad-403b-959c-433f5f90a2b5");
   OneSignal.Notifications.requestPermission(true);
   runApp(const MyApp());
@@ -61,9 +62,21 @@ class AppInitializationService {
   AppInitializationService(this._appsflyer);
 
   Future<void> initialize() async {
+    await aps();
     await _initializeFirebase();
     await _initializeAppsflyer();
     await _fetchAppleSearchAdsData();
+  }
+
+  Future<void> aps() async {
+    final TrackingStatus status =
+        await AppTrackingTransparency.trackingAuthorizationStatus;
+    if (status == TrackingStatus.notDetermined) {
+      await AppTrackingTransparency.requestTrackingAuthorization();
+    } else if (status == TrackingStatus.denied ||
+        status == TrackingStatus.restricted) {
+      await AppTrackingTransparency.requestTrackingAuthorization();
+    }
   }
 
   Future<void> _initializeFirebase() async {
